@@ -6,31 +6,33 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class LoginTests {
     WebDriver driver;
-    @BeforeClass
-    public void setUp(){
+
+    @BeforeMethod
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
+
     @Test
-    public void loginTest1(){
+    public void loginTest1() {
         driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
-        driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test"+ Keys.ENTER);
+        driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test" + Keys.ENTER);
         System.out.println(driver.getTitle());//print title
-        Assert.assertEquals(driver.getTitle(),"Web Orders");
+        Assert.assertEquals(driver.getTitle(), "Web Orders");
     }
-    @AfterClass
-    public void tearDown(){
+
+    @AfterMethod
+    public void cleanUp() {
         driver.close();
     }
+
 }
