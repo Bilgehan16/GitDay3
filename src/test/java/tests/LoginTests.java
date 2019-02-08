@@ -10,7 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
-
+//Login tests are maintained here.
+//without Page object approach
 public class LoginTests {
     WebDriver driver;
 
