@@ -9,11 +9,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 //Login tests are maintained here.
 //without Page object approach
 public class LoginTests {
     WebDriver driver;
+    Map<String,String> myMap=new HashMap<>();//just add example not important
 
     @BeforeMethod
     public void setUp() {
